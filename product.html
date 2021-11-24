@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--- Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,800;1,200;1,300;1,700&display=swap" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet" >
+
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <title>Ecommerce</title>
+  </head>
+<body>
+<!--navbar-->
+<nav class="navbar navbar-expand-md navbar-dark py-2">
+    <div class="container"> <!--container-fluid-->
+        <div>
+            <div class="megaman"></div>
+        </div>
+        <a class="title navbar-brand fw-bold" href="#">MegaMan Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" aria-current="page" href="#">Incio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tienda.html">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#info">Informate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contactar">Contactanos</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        INGRESAR
+                        <span class="iconify" data-icon="fe:login" data-width="20" data-height="20"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                    <li>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="iconify" data-icon="mdi:account" data-width="20" data-height="24"></span> Iniciar Sesion</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropRegister"><span class="iconify" data-icon="mdi:account-plus" data-width="20" data-height="24"></span> Registrarse</a>
+                    </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                    <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                    <button class="btn btn-secondary" type="button" id="button-addon2">
+                        <span class="iconify" data-icon="bx:bx-search-alt" data-width="26" data-height="26"></span>
+                    </button>
+                </div>
+                <a class="btn btn-danger btn-sm ms-2 position-relative" href="cart.html">
+                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="26" data-height="26"></span>
+                    <span class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle badge" style="font-size: 1em;">3</span>
+                </a>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Modal LOGIN -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="staticBackdropLabel">INGRESAR</h5>
+                <button type="button" class="btn-close btn-danger p-1 m-1" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-1">
+                <form class="aling-items-center was-validated " >
+                    <div class="mb-3 ">
+                        <label for="exampleInputEmail1" class="form-label">Ingrese su Correo:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                        <div class="invalid-feedback">
+                            Introduce un email valido.
+                        </div>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="exampleInputPassword1" class="form-label">Ingrese su Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" required>
+                        <div class="invalid-feedback">
+                            La contraseña debe tener al menos 8 caracteres.
+                        </div>
+                    </div>
+                    <div class="mb-2 text-center">
+                        <button type="submit" class="btn btn-primary">INGRESAR</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer flex-nowrap justify-content-between">
+                <a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#staticBackdropRegister" aria-label="Close">Registrarse</a>
+                <a href=""  data-bs-toggle="modal" data-bs-target="#exampleModalContra" >Olvido su contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Registrarse -->
+<div class="modal fade" id="staticBackdropRegister" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="staticBackdropLabel">Registrarse</h5>
+                <button type="button" class="btn-close btn-danger p-1 m-1" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-1">
+                <form class="aling-items-center was-validated" >
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <div class="pe-2">
+                                <label for="exampleInputName" class="form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="exampleInputName" placeholder="Juanito" required>
+                                <div class="invalid-feedback">
+                                    Ingrese su nombre.
+                                </div>
+                            </div>
+                            <div class="ps-2">
+                                <label for="exampleInputLastName" class="form-label">Apellido:</label>
+                                <input type="text" class="form-control" id="exampleInputLastName" placeholder="Alimaña" required>
+                                <div class="invalid-feedback">
+                                    Ingrese su apellido.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex">
+                            <div class="pe-2">
+                                <label for="exampleInputDNI" class="form-label">DNI:</label>
+                                <input type="number" class="form-control" id="exampleInputDNI" minlength="8" placeholder="77777777" required>
+                                <div class="invalid-feedback">
+                                    Ingrese su DNI.
+                                </div>
+                            </div>
+                            <div class="ps-2">
+                                <label for="exampleInputTelefono" class="form-label">Telefono:</label>
+                                <input type="number" class="form-control" id="exampleInputTelefono" minlength="9" placeholder="999999999" required>
+                                <div class="invalid-feedback">
+                                    Ingrese su Numero Telefonico.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="exampleInputEmail1" class="form-label">Ingrese su Correo:</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ejemplo@ejemplo.com" required>
+                        <div class="invalid-feedback">
+                            Introduce un email valido.
+                        </div>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="exampleInputPassword1" class="form-label">Ingrese su Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" placeholder="*********" required>
+                        <div class="invalid-feedback">
+                            La contraseña debe tener al menos 8 caracteres.
+                        </div>
+                    </div>
+
+                    <div class="mb-2 form-check text-dark">
+                        <input type="checkbox" class="form-check-input border-dark" id="exampleCheck1">
+                        <label class="form-check-label text-dark" for="exampleCheck1">Acepto los <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalTerminos">Terminos <span>y</span> Codiciones.</a> </label>
+                    </div>
+
+                    <div class="mb-2 text-center">
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer flex-nowrap justify-content-between">
+                <a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#staticBackdrop" aria-label="Close">Iniciar Sesion</a>
+                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalContra">Olvido su contraseña?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+<!-- Modal TERMINOS Y CONDICIONES-->
+<div class="modal fade" id="exampleModalTerminos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold" id="exampleModalLabel">Terminos y Codiciones</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal RECUPERAR CONTRASEÑA-->
+<div class="modal fade" id="exampleModalContra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title fw-bold" id="exampleModalLabel">Recuperar Contraseña</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p>Enviaremos un correo para que pueda restablecer su contraseña</p>
+            <label for="correo-name" class="col-form-label">Correo:</label>
+            <input type="text" class="form-control" id="correo-name">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Enviar</button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- BANNER-->
+<div>
+    <br>
+    <section>
+        <div class="parallax-two"></div>
+    </section>
+</div>
+
+<!--PRODUCTO-->
+<div class="container">
+    <div class="row">
+        <div class="col mt-5">
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb p-2" style="background-color: #e9ecef; border-radius: 5px;">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="tienda.html">Categorias</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cat.Productos</li>
+                </ol>
+            </nav>
+            <h2 class="text-center p-2" style="font-family: 'Hemi Head', sans-serif; font-size: 50px;">Categoria del Producto</h2>
+        </div>
+    </div>
+</div>
+<!--PRODUCTO-->
+<div class="container">
+    <div class="row">
+        <!-- Image -->
+        <div class="col-12 col-lg-6 ">
+            <div class="card bg-light mb-3">
+                <div class="card-body">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#productModal">
+                        <!-- Image 800x800 -->
+                        <img class="img-fluid" src="img/MONITOR-PRODUCT.jpg"/>
+                        <p class="text-center p-1 m-2">
+                            <span class="iconify" data-icon="bx:bx-zoom-in" data-width="40" data-height="40"></span>
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Add to cart -->
+        <div class="col-12 col-lg-6 add_to_cart_block">
+            <div class="card bg-light mb-3">
+                <div class="card-body">
+                    <h3 class="nomProducto fw-bold mb-3"> MONITOR AORUS FV43U 43" ( FV43U-SA ) GAMING | HDMI | 1MS | 4K | 144HZ</h3>
+                    <p class="codigo text-danger fw-bold mb-1"> Codigo Producto:<span> 199999</span></p> 
+                    <p class="stk text-danger fw-bold"> Stock producto:<span> 199999</span></p>
+                    <p class="fw-bold mb-1">PRECIO:</p> 
+                    <p class="price">99.00 $</p>
+                    <p class="price_discounted">149.90 $</p>
+                    <form method="get" action="cart.html">
+                        <div class="form-group mb-2">
+                            <label class="fw-bold">Cantidad:</label>
+                            <div class="input-group mb-3">
+                                <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                    <span class="iconify" data-icon="bx:bx-minus" data-width="22" data-height="22"></span>                                
+                                </button>
+                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
+                                <button type="button" class="quantity-right-plus btn btn-primary btn-number" data-type="plus" data-field="">
+                                    <span class="iconify" data-icon="bx:bx-plus" data-width="22" data-height="22"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="cart.html" class="btn btn-danger btn-lg text-uppercase">
+                                <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="26" data-height="26"></span>
+                                Agregar al carrito
+                            </a>
+                        </div>
+                    </form>
+                    <div class="product_rassurance">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <span class="iconify" data-icon="bx:bxs-truck" data-width="36" data-height="36"></span>
+                                <br/> Envio gratis
+                            </li>
+                            <li class="list-inline-item">
+                                <span class="iconify" data-icon="bx:bxs-credit-card" data-width="36" data-height="36"></span>
+                                <br/>Paga con tarjeta
+                            </li>
+                            <li class="list-inline-item">
+                                <span class="iconify" data-icon="bx:bxs-phone" data-width="36" data-height="36"></span>
+                                <br/>+51 999999999
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reviews_product st-italic fw-bold mb-3 mt-3">
+                        3 reviews
+                        <span class="iconify star" data-icon="bx:bxs-star" data-width="20" data-height="20"></span>
+                        <span class="iconify star" data-icon="bx:bxs-star" data-width="20" data-height="20"></span>
+                        <span class="iconify star" data-icon="bx:bxs-star" data-width="20" data-height="20"></span>
+                        <span class="iconify star" data-icon="bx:bxs-star" data-width="20" data-height="20"></span>
+                        <span class="iconify star" data-icon="bx:bxs-star" data-width="20" data-height="20"></span>
+                        (4/5)
+                        <a class="float-end" href="#reviews">View all reviews</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Description -->
+        <div class="col-12 ">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase fw-bold">
+                    <span class="iconify" data-icon="bx:bx-align-justify" data-width="24" data-height="24"></span>
+                    Descripcion del Producto
+                </div>
+                <div class="card-body ">
+                    <table>
+                        <tr>
+                            <td class="fw-bold">Marca:</td>
+                            <td>Aorus</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Modelo:</td>
+                            <td>FV43U</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Tipo:</td>
+                            <td>Monitor Gaming</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Resolucion:</td>
+                            <td>3840 x 2160</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Tiempo de Respuesta:</td>
+                            <td>1MS</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Refresh Rate:</td>
+                            <td>144Hz</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Pantalla:</td>
+                            <td>4K</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Peso:</td>
+                            <td>1.5 kg</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Dimensiones:</td>
+                            <td>43.5 x 33.5 x 22.5 cm</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Color:</td>
+                            <td></td>
+                        </tr>
+                        
+                    </table>
+                    <p class="card-text ">
+                    <br>
+                        Ver en la pagina de la MARCA: <a href="">GIGABYTE</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="col-12" id="reviews">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Reviews</div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="review">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YolzzI3jJsY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal image -->
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModalLabel">MONITOR AORUS FV43U 43</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="img-fluid" src="img/MONITOR-PRODUCT.jpg"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="text-light mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>Nosotros</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informacion</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h5>Mas</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contacto</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><span class="iconify mr-2" data-icon="ant-design:home-filled" data-width="20" data-height="20"></span> Empresa!</li>
+                    <li><span class="iconify mr-2" data-icon="bi:envelope-fill" data-width="20" data-height="20"></span> email@empresa!.com</li>
+                    <li><span class="iconify mr-2" data-icon="ant-design:phone-filled" data-width="20" data-height="20"></span> + 51 999 999 999</li>
+                    <li><span class="iconify mr-2" data-icon="akar-icons:facebook-fill" data-width="20" data-height="20"></span> @Empresa!</li>
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                <p class="text-start">
+                    <a href="#">Ir al Inicio</a>
+                </p>
+                <p class="text-end text-danger fw-bold">Developer by <a href="https://github.com/roke741" target="_blank" ><i>ROKE</i></a> <span class="iconify" data-icon="ant-design:heart-filled" data-width="20" data-height="20"></span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!--iconos-->
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //Plus & Minus for Quantity product
+        $(document).ready(function(){
+            var quantity = 1;
+    
+            $('.quantity-right-plus').click(function(e){
+                e.preventDefault();
+                var quantity = parseInt($('#quantity').val());
+                $('#quantity').val(quantity + 1);
+            });
+    
+            $('.quantity-left-minus').click(function(e){
+                e.preventDefault();
+                var quantity = parseInt($('#quantity').val());
+                if(quantity > 1){
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+    
+        });
+    </script>
+</body>
+</html>

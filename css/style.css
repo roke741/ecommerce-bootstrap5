@@ -1,0 +1,211 @@
+@font-face {
+  font-family: "Hemi Head";
+  src: url("fonts/hem_head_bd_it.ttf");
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+}
+
+/*megaman*/
+.megaman{
+  transform-origin: 0 100%;
+  transform:scale(2);
+  height:32px;
+  width:25px;
+  background-image: url(http://img.photobucket.com/albums/v483/Toadkarter91/8bitmm.gif~original);
+  image-rendering: pixelated;
+  animation:run .6s step-start infinite;
+  background-position:-190px -3px;
+  margin-right: 20px;
+}
+@keyframes run {
+  25% {
+    background-position:-190px -3px;
+  }
+  50% {
+    background-position:-216px -3px;
+  }
+  75% { 
+    background-position:-241px -3px;
+  }
+  100%{
+    background-position:-216px -3px;
+  }
+}
+
+.imgRedonda{
+  width: 150px;
+  height: 150px;
+  border-radius:150px;
+  box-shadow: #343a40 0px 0px 10px;
+}
+
+/*TITULO*/
+.title{
+  font-family: 'Hemi Head', sans-serif;
+  text-shadow: #f8f8fa 0px 0px 10px;
+}
+.navbar{
+  background-color: #0008FFA6;
+}
+.navbar-brand{
+  font-size: 34px;
+}
+.nav-link{
+  font-size: 18px;
+}
+/* STYLE CARRUSEL*/
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 42rem;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* MARKETING CONTENT */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marca{
+  color:#595EFF
+}
+/* rtl:begin:ignore */
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+/*TIENDA*/
+.bloc_left_price {
+  color: #c01508;
+  text-align: center;
+  font-weight: bold;
+  font-size: 150%;
+}
+.category_block li:hover {
+  background-color: #007bff;
+}
+.category_block li:hover a {
+  color: #ffffff;
+}
+.category_block li a {
+  color: #343a40;
+}
+/* Featurettes*/
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  /* rtl:remove */
+  letter-spacing: -.05rem;
+}
+.pagination {
+  margin-top: 20px;
+}
+
+footer {
+  background: #595EFF;
+  /*background: #343a40;*/
+  padding: 40px;
+}
+footer a {
+  color: #f8f9fa!important
+}
+
+.parallax-one {
+  padding-top: 150px; 
+  padding-bottom: 150px; 
+  overflow: hidden; 
+  position: relative; 
+  width: 100%; 
+  background-image: url("../img/banner-final.png"); 
+  background-attachment: fixed; 
+  background-size: cover; 
+  -moz-background-size: cover; 
+  -webkit-background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: top center;}
+
+.parallax-two {
+  padding-top: 60px; 
+  padding-bottom: 60px; 
+  overflow: hidden; 
+  position: relative; 
+  width: 100%;
+  background-image: url("../img/banner-promo.png"); 
+  background-attachment: fixed; 
+  background-size: 100% 25%;
+  background-repeat: no-repeat; 
+  background-position: top center;
+}
+/* RESPONSIVE CSS*/
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+.add_to_cart_block .price {
+  color: #c01508;
+  text-align: center;
+  font-weight: bold;
+  font-size: 200%;
+  margin-bottom: 0;
+}
+.add_to_cart_block .price_discounted {
+  color: #343a40;
+  text-align: center;
+  text-decoration: line-through;
+  font-size: 140%;
+} 
+.product_rassurance {
+  padding: 10px;
+  margin-top: 15px;
+  background: #ffffff;
+  border: 1px solid #6c757d;
+  color: #6c757d;
+}
+.product_rassurance .list-inline {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+.product_rassurance .list-inline li:hover {
+  color: #343a40;
+}
+.reviews_product .star {
+  color: gold;
+}

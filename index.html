@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--- Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,800;1,200;1,300;1,700&display=swap" rel="stylesheet">    
+    <link href="css/style.css" rel="stylesheet" >
+
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <title>Ecommerce</title>
+    <script src="js/validation.js" type="text/javascript"></script>
+  </head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark py-2">
+        <div class="container"> <!--container-fluid-->
+            <div>
+                <div class="megaman"></div>
+            </div>
+            <a class="title navbar-brand fw-bold" href="#">MegaMan Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold" aria-current="page" href="#">Incio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tienda.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#info">Informate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactar">Contactanos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            INGRESAR
+                            <span class="iconify" data-icon="fe:login" data-width="20" data-height="20"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="iconify" data-icon="mdi:account" data-width="20" data-height="24"></span> Iniciar Sesion</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdropRegister"><span class="iconify" data-icon="mdi:account-plus" data-width="20" data-height="24"></span> Registrarse</a>
+                        </li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex my-2 my-lg-0">
+                    <div class="input-group input-group-sm">
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                        <button class="btn btn-secondary" type="button" id="button-addon2">
+                            <span class="iconify" data-icon="bx:bx-search-alt" data-width="26" data-height="26"></span>
+                        </button>
+                    </div>
+                    <a class="btn btn-danger btn-sm ms-2 position-relative" href="cart.html">
+                        <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="26" data-height="26"></span>
+                        <span class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle badge" style="font-size: 1em;">3</span>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Modal LOGIN -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="staticBackdropLabel">INGRESAR</h5>
+                    <button type="button" class="btn-close btn-danger p-1 m-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-1">
+                    <form class="aling-items-center was-validated " >
+                        <div class="mb-3 ">
+                            <label for="exampleInputEmail1" class="form-label">Ingrese su Correo:</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                            <div class="invalid-feedback">
+                                Introduce un email valido.
+                            </div>
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputPassword1" class="form-label">Ingrese su Contraseña</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" required>
+                            <div class="invalid-feedback">
+                                La contraseña debe tener al menos 8 caracteres.
+                            </div>
+                        </div>
+                        <div class="mb-2 text-center">
+                            <button type="submit" class="btn btn-primary">INGRESAR</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer flex-nowrap justify-content-between">
+                    <a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#staticBackdropRegister" aria-label="Close">Registrarse</a>
+                    <a href=""  data-bs-toggle="modal" data-bs-target="#exampleModalContra" >Olvido su contraseña?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registrarse -->
+    <div class="modal fade" id="staticBackdropRegister" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="staticBackdropLabel">Registrarse</h5>
+                    <button type="button" class="btn-close btn-danger p-1 m-1" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pb-1">
+                    <form class="aling-items-center was-validated" >
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <div class="pe-2">
+                                    <label for="exampleInputName" class="form-label">Nombre:</label>
+                                    <input type="text" class="form-control" id="exampleInputName" placeholder="Juanito" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese su nombre.
+                                    </div>
+                                </div>
+                                <div class="ps-2">
+                                    <label for="exampleInputLastName" class="form-label">Apellido:</label>
+                                    <input type="text" class="form-control" id="exampleInputLastName" placeholder="Alimaña" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese su apellido.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex">
+                                <div class="pe-2">
+                                    <label for="exampleInputDNI" class="form-label">DNI:</label>
+                                    <input type="number" class="form-control" id="exampleInputDNI" minlength="8" placeholder="77777777" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese su DNI.
+                                    </div>
+                                </div>
+                                <div class="ps-2">
+                                    <label for="exampleInputTelefono" class="form-label">Telefono:</label>
+                                    <input type="number" class="form-control" id="exampleInputTelefono" minlength="9" placeholder="999999999" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese su Numero Telefonico.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputEmail1" class="form-label">Ingrese su Correo:</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="ejemplo@ejemplo.com" required>
+                            <div class="invalid-feedback">
+                                Introduce un email valido.
+                            </div>
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleInputPassword1" class="form-label">Ingrese su Contraseña</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" placeholder="*********" required>
+                            <div class="invalid-feedback">
+                                La contraseña debe tener al menos 8 caracteres.
+                            </div>
+                        </div>
+
+                        <div class="mb-2 form-check text-dark">
+                            <input type="checkbox" class="form-check-input border-dark" id="exampleCheck1">
+                            <label class="form-check-label text-dark" for="exampleCheck1">Acepto los <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalTerminos">Terminos <span>y</span> Codiciones.</a> </label>
+                        </div>
+
+                        <div class="mb-2 text-center">
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer flex-nowrap justify-content-between">
+                    <a href="" data-bs-toggle="modal" data-bs-dismiss="modal" data-bs-target="#staticBackdrop" aria-label="Close">Iniciar Sesion</a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#exampleModalContra">Olvido su contraseña?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Button trigger modal -->
+  
+  <!-- Modal TERMINOS Y CONDICIONES-->
+    <div class="modal fade" id="exampleModalTerminos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fw-bold" id="exampleModalLabel">Terminos y Codiciones</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum est et ratione consequatur ex aspernatur iste sed alias corrupti officia dolore similique quis pariatur veritatis quia dolorum, iure voluptate debitis?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Modal RECUPERAR CONTRASEÑA-->
+  <div class="modal fade" id="exampleModalContra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title fw-bold" id="exampleModalLabel">Recuperar Contraseña</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Enviaremos un correo para que pueda restablecer su contraseña</p>
+                <label for="correo-name" class="col-form-label">Correo:</label>
+                <input type="text" class="form-control" id="correo-name">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Slides carrusel-->
+    <section>
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img class="d-block w-100 h-100" src="img/carrusel1.png" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption text-start ">
+                            <h1 class="fw-bold" >¿TUS TRABAJOS SE  IMPRIMEN CON MANCHAS O LINEAS?</h1>
+                            <p>"El ordenador nació para resolver problemas que antes no existían"</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Solucionar</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                <img class="d-block w-100 h-100" src="img/carrusel2.png" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1 class="fw-bold">¿TU PC ESTA LENTA?</h1>
+                            <p>"El ordenador nació para resolver problemas que antes no existían"</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Solucionar</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                <img class="d-block w-100 h-100" src="img/carrusel3.png" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1 class="fw-bold">¿HAS TENIDO MALAS EXPERIENCIAS CON TECNICOS?</h1>
+                            <p>"Sabes cual es el problema? Imaginarse el algoritmo y no programarlo"</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">Solucionar</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+
+    <!--presentacion-->
+    <!-- Three columns of text below the carousel -->
+    <div class="container marketing">
+        <!-- START THE FEATURETTES -->
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7" id="info">
+                <h2 class="featurette-heading fw-bold">MANTENIMIENTO PREVENTIVO. <br><span class="text-primary">Se puede programar el mantenimiento para prevenir un fallo. </span></h2>
+                <p class="lead ">
+                    Requiere de una planificación previa para brindar el servicio.
+                    Tiene como objetivo reducir los riesgos por causas de fallas o caídas, sin que afecten el rendimiento de la máquina y con intervalos de tiempo definidos.
+                </p>
+            </div>
+            <div class="col-md-5">
+                <img src="img/mantenimiento-preventivo.png" width="500" height="500" alt="">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-bold">MANTENIMIENTO CORRECTIVO. <br> <span class="text-primary">Se realiza cuando ya existe un fallo.</span></h2>
+                <p class="lead ">
+                    Las reparaciones se realizan en los equipos o máquinas que ya no funcionan.
+                    La intervención se realiza cuando es necesario que vuelvan a cumplir con sus funciones.
+                </p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="img/mantenimiento-correctivo.png" width="500" height="500" alt="">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+
+        <div class="row marca">
+            <div class="col-lg-4">
+                <img src="img/TANJIRO.jpg" alt=""  class='imgRedonda' >
+                <h2>ROKE</h2>
+                <p>DOTERO</p>
+                <p><a class="btn btn-danger" href="#">GITHUB &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4 ">
+                <img src="img/FRANK.jpg" alt=""  class='imgRedonda'>
+                <h2>FRANK</h2>
+                <p>DOTERO</p>
+                <p><a class="btn btn-danger" href="#">GITHUB &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="img/ironmaiden.jpg" alt=""  class='imgRedonda'>
+                <h2>JHORDIE</h2>
+                <p>OTRO DOTERO</p>
+                <p><a class="btn btn-danger" href="#">GITHUB &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+        <hr class="featurette-divider">
+    </div><!-- /.container -->
+    <!--servicios-->
+    <div class="container mt-2 mb-5" id="servicios">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-header text-white text-uppercase fw-bold fs-4" style="background-color:#595EFF;">
+                        <span class="iconify" data-icon="mdi:tools" data-width="40" data-height="40"></span>
+                        <span>&nbsp;&nbsp;&nbsp;SERVICIO TÉCNICO PROFESIONAL</span>  
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!--item 1-->
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/card-img.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Soporte Tecnico Basico</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card border-danger border-3 position-relative">
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                         OFERTA!
+                                        </span>
+                                    <img class="card-img-top " src="img/card-img.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Soporte Tecnico Completo</a></h4>
+                                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">9.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/card-img.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center "><a href="product.html" title="View Product">Soporte Tecnico Premium</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/card-img.png" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Servicio Tecnico Remoto</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--tienda-->
+    <div class="container mt-3 mb-4" id="productos">
+        <div class="row">
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-header text-white text-uppercase fw-bold fs-4" style="background-color:#595EFF;">
+                        <span class="iconify" data-icon="entypo:shop" data-width="40" data-height="40"></span>
+                        <span>&nbsp;&nbsp;&nbsp; <a href="tienda.html" class="text-light text-decoration-none">TIENDA</a> </span>  
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!--item 1-->
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/CASE.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Case Gamer CoolMaster</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card border-danger border-3 position-relative">
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                         OFERTA!
+                                        </span>
+                                    <img class="card-img-top " src="img/DISCO DURO.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Disco Duro Mecanico 1TB WD</a></h4>
+                                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">19.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/FUENTE DE PODER.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center "><a href="product.html" title="View Product">Fuente de Poder GIGABYTE 750W</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/MONITOR.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Monitor Samsung UltraWide 27"</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--LINEA 2 TIENDA--->
+                    <div class="card-body">
+                        <div class="row">
+                            <!--item 1-->
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/PLACA MADRE.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Placa Base ColorFull Z490X VULCAN</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card border-danger border-3 position-relative">
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                         OFERTA!
+                                        </span>
+                                    <img class="card-img-top " src="img/PROCESADOR AMD.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">Procesador AMD Ryzen 7 3700x</a></h4>
+                                        <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">9.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/RAM.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center "><a href="product.html" title="View Product">Memoria RAM HP DDR4 8GB 3200Mhz</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger ">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card">
+                                    <img class="card-img-top" src="img/TARJETA DE VIDEO.jpeg" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title text-center"><a href="product.html" title="View Product">T.Grafica GIGABYTE RTX 3090 24GB</a></h4>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger">99.00 $</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="cart.html" class="btn btn-primary ">Agregar 
+                                                    <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BANNER-->
+    <div>
+        <section>
+            <div class="parallax-one">
+              
+            </div>
+        </section>
+    </div>
+    <!--contactar-->
+    <div class="container mt-5" id="contactar">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h2 class="fw-bold display-3">Contactanos!</h2>
+                <h5> Si necesitas contactarnos para hacer alguna consulta o simplemente para dejar tu comentario, porfavor sentite libre de hacerlo</h5>
+                <form action="">
+                    <div class="row mt-4 p-2">
+                        <div class="col">
+                            <label for="floatingInput" class="form-label fw-bold">Nombre: </label>
+                            <input type="text" class="form-control" placeholder="Juanito" aria-label="First name">
+                        </div>
+                        <div class="col">
+                            <label for="floatingInput" class="form-label fw-bold">Apellido: </label>
+                            <input type="text" class="form-control" placeholder="Perez" aria-label="Last name">
+                        </div>
+                        <div class="col mb-3">
+                            <label for="floatingInput" class="form-label fw-bold">Correo Electronico: </label>
+                            <input type="email" class="form-control" id="FormControlInput1" placeholder="name@example.com">
+                        </div>
+                      </div>
+                    <div class="row mb-3">
+                        <label for="FormControlTextarea1" class="form-label fw-bold">Comentanos!:</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2" class="p-3"> Escribe tu comentario o si tiene una consulta</label>
+                        </div>
+                    </div>
+                    <div class="row justify-content-md-center mb-3">
+                        <div class="col-md-auto">
+                            <button type="submit" class="btn btn-primary px-5 fw-bold fs-5">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <h3 class="fw-bold display-5">Recibe nuestra promociones primero!</h3>
+            <div class="row justify-content-md-center mb-3 mt-3 ">
+                <label for="staticEmail" class="col-sm-3 col-form-label col-form-label-lg fw-bold text-end">Correo Electronico:</label>
+                <div class="col-sm-8 ">
+                    <input type="text"  class="form-control-plaintext form-control-lg p-2" id="staticEmail"  placeholder="name@example.com">
+                </div>
+            </div>
+            <div class="row justify-content-md-center mb-3">
+                <div class="col-md-auto">
+                    <button type="submit" class="btn btn-primary btn-lg px-5 fw-bold fs-5">SUSCRIBIRME!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<footer class="text-light mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-4 col-xl-3">
+                <h5>Nosotros</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <p class="mb-0">
+                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+                </p>
+            </div>
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                <h5>Informacion</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                <h5>Mas</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><a href="">Link 1</a></li>
+                    <li><a href="">Link 2</a></li>
+                    <li><a href="">Link 3</a></li>
+                    <li><a href="">Link 4</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h5>Contacto</h5>
+                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                <ul class="list-unstyled">
+                    <li><span class="iconify mr-2" data-icon="ant-design:home-filled" data-width="20" data-height="20"></span> MegaMan Store</li>
+                    <li><span class="iconify mr-2" data-icon="bi:envelope-fill" data-width="20" data-height="20"></span> email@megamanstore.com</li>
+                    <li><span class="iconify mr-2" data-icon="ant-design:phone-filled" data-width="20" data-height="20"></span> + 51 999 999 999</li>
+                    <li><span class="iconify mr-2" data-icon="akar-icons:facebook-fill" data-width="20" data-height="20"></span> @MegaManStore</li>
+                </ul>
+            </div>
+            <div class="col-12 copyright mt-3">
+                <p class="text-start">
+                    <a href="#">Ir al Inicio</a>
+                </p>
+                <p class="text-end text-danger fw-bold">Developer by <a href="https://github.com/roke741" target="_blank" ><i>ROKE</i></a> <span class="iconify" data-icon="ant-design:heart-filled" data-width="20" data-height="20"></span></p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
