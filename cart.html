@@ -353,25 +353,29 @@
 </div>
 <!-- Button trigger modal -->
   <!-- Modal pagar-->
-  <div class="modal fade" id="pagarModal" tabindex="-1" aria-labelledby="PagarModalLabel" aria-hidden="true">
+  <div class="modal fade" id="pagarModal" tabindex="-1" aria-labelledby="PagarModalLabel" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content align-">
         <div class="modal-header">
           <h5 class="modal-title fw-bold" id="exampleModalLabel">PAGAR</h5>
           <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form class="PAGO" id="CONTENEDOR_DATOS"></form>
         <div class="modal-body">
-            <input type="number" name="tarjeta" id="pago_tarjeta" placeholder="Número de Tarjeta" maxlength="16">
-            <input type="number" name="fecha" id="pago_fecha" placeholder="MM/AA" maxlength="7">
-            <input type="number" name="CVV" id="pago_CVV" placeholder="CVV" maxlength="3">
-            <input type="text" name="nombre" id="pago_nombre" placeholder="Nombre" maxlength="20">
-            <input type="text" name="apellido" id="pago_apellido" placeholder="Apellido" maxlength="20">
-            <input type="email" name="email" id="pago_email" placeholder="Email" maxlength="100">
+                <input type="number" name="tarjeta" id="pago_tarjeta" placeholder="Número de Tarjeta" maxlength="16">
+                <input type="number" name="fecha" id="pago_fecha" placeholder="MM/AA" maxlength="7">
+                <input type="number" name="CVV" id="pago_CVV" placeholder="CVV" maxlength="3">
+                <input type="text" name="nombre" id="pago_nombre" placeholder="Nombre" maxlength="20">
+                <input type="text" name="apellido" id="pago_apellido" placeholder="Apellido" maxlength="20">
+                <input type="email" name="email" id="pago_email" placeholder="Email" maxlength="100">
             
             <div id="paypal-button-container"></div>
         </div>
+
         <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="btn-pagar" data-bs-dismiss="modal">Pagar</button>
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          
         </div>
       </div>
     </div>
