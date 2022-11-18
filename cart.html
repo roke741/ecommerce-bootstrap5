@@ -156,14 +156,14 @@
                         <div class="d-flex">
                             <div class="pe-2">
                                 <label for="exampleInputName" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="exampleInputName" placeholder="Juanito" required>
+                                <input type="text" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" id="exampleInputName" placeholder="Juanito" required>
                                 <div class="invalid-feedback">
                                     Ingrese su nombre.
                                 </div>
                             </div>
                             <div class="ps-2">
                                 <label for="exampleInputLastName" class="form-label">Apellido:</label>
-                                <input type="text" class="form-control" id="exampleInputLastName" placeholder="Alimaña" required>
+                                <input type="text" onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" id="exampleInputLastName" placeholder="Alimaña" required>
                                 <div class="invalid-feedback">
                                     Ingrese su apellido.
                                 </div>
