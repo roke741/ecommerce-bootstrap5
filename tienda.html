@@ -15,6 +15,9 @@
     
         <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
         <title>Ecommerce</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="catalogo.js"></script>
     </head>    
 <body>
     <nav class="navbar navbar-expand-md navbar-dark py-2">
@@ -66,14 +69,44 @@
                             <span class="iconify" data-icon="bx:bx-search-alt" data-width="26" data-height="26"></span>
                         </button>
                     </div>
-                    <a class="btn btn-danger btn-sm ms-2 position-relative" href="cart.html">
+                    <button class="btn btn-danger btn-sm ms-2 position-relative" type="button" data-bs-toggle="modal" data-bs-target="#modalcarrito">
                         <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="26" data-height="26"></span>
-                        <span class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle badge" style="font-size: 1em;">3</span>
-                    </a>
+                        <span class="badge rounded-pill bg-dark position-absolute top-0 start-100 translate-middle badge" style="font-size: 1em;" id="countcard">0</span>
+                    </button>
                 </form>
             </div>
         </div>
     </nav>
+    <!-- Modal carrito-->
+    <div class="modal fade" id="modalcarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Carrito de Compras 
+                        <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="bodycarrito">
+                    Carrito vacio 😔
+                    <!-- <span class="d-flex justify-content-between align-self-center px-3 my-2">
+                        <img src="img/PROCESADOR AMD.jpeg" alt="" width="60">
+                        <span class="align-self-center">ryzen 5</span> 
+                        <span class="align-self-center">S/. 3000</span>
+                        <button class="btn btn-sm btn-danger"><span class="iconify" data-icon="bi:trash-fill" data-width="20" data-height="20"></span> </button>
+                    </span> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button type="button" class="btn btn-success">
+                        <span class="iconify" data-icon="ant-design:credit-card-filled" data-width="24" data-height="24"></span>
+                        Ir a pagar <span id="totalpagarcarrito"> </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  
     
     <!-- Modal LOGIN -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -306,8 +339,8 @@
                         <img  class="img-fluid mb-3" src="img/MONITOR-PRODUCT.jpg" alt="">
                         <h5 class="card-title"> <a href="product.html" class="text-decoration-none fw-bold">MONITOR AORUS</a> </h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p class="bloc_left_price m-0"> 199.00$</p>
-                        <p class="text-decoration-line-through text-center mb-1">299.00$</p>
+                        <p class="bloc_left_price m-0"> S/. 199.00</p>
+                        <p class="text-decoration-line-through text-center mb-1">S/. 299.00</p>
                         <div class="d-grid gap-2 col-6 mx-auto">
                             <a href="cart.html" class="btn btn-primary">Agregar 
                                 <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
@@ -318,20 +351,23 @@
             </div>
             <!--PRODUCTOS-TIENDA-->
             <div class="col">
-                <div class="row">
+                <div class="row" id="tienda">
+
                     <!--PRODUCTOS 1-->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
-                        <div class="card">
+                        <div class="card" id="producto1">
                             <img class="card-img-top" src="img/PROCESADOR AMD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark text-decoration-none"> Producto 1 <span class="badge bg-primary">New</span></a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark text-decoration-none"> <span id="nameproducto1">Ryzen 7 </span> <span class="badge bg-primary">New</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 20</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger ">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto1">1200.00</span> </p>
+                                        
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto1').text(), $('#precioproducto1').text(), 'img/PROCESADOR AMD.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -339,19 +375,21 @@
                             </div>
                         </div>
                     </div>
+
                     <!--PRODUCTOS 2-->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card">
                             <img class="card-img-top" src="img/PROCESADOR AMD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"> <span id="nameproducto2">Ryzen 5 </span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 15</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto2">500.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a  class="btn btn-primary" onclick="agregar($('#nameproducto2').text(), $('#precioproducto2').text(), 'img/PROCESADOR AMD.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -364,14 +402,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/PROCESADOR AMD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto3">Ryzen 3</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 10</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto3">300.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto3').text(), $('#precioproducto3').text(), 'img/PROCESADOR AMD.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -380,19 +419,19 @@
                         </div>
                     </div>
                     <!--PRODUCTOS 1-->
-                    <!--PRODUCTOS 1-->
                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                         <div class="card">
                             <img class="card-img-top" src="img/TARJETA DE VIDEO.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"> <span id="nameproducto4">GTX 1660 SUPER</span> </a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 5</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger ">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto4">1100.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto4').text(), $('#precioproducto4').text(), 'img/TARJETA DE VIDEO.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -405,14 +444,17 @@
                         <div class="card">
                             <img class="card-img-top" src="img/TARJETA DE VIDEO.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto5">RTX 2060 SUPER</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 3</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto5">1600.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-primary">Comprar</a>
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto5').text(), $('#precioproducto5').text(), 'img/TARJETA DE VIDEO.jpeg')">Agregar
+                                            <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -423,14 +465,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/TARJETA DE VIDEO.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto6">RTX 3060 TI</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 2</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto6">2000.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto6').text(), $('#precioproducto6').text(),'img/TARJETA DE VIDEO.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -443,14 +486,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/SSD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto7">SSD SANDISK 240GB</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 20</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger ">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto7">120.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto7').text(), $('#precioproducto7').text(), 'img/SSD.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -463,14 +507,17 @@
                         <div class="card">
                             <img class="card-img-top" src="img/SSD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto8">SSD SANDISK 500GB</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 25</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto8">180.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-primary">Comprar</a>
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto8').text(), $('#precioproducto8').text(), 'img/SSD.jpeg')">Agregar
+                                            <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -481,14 +528,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/SSD.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto9">SSD SANDISK 1TB</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 20</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto9">320.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto9').text(), $('#precioproducto9').text(), 'img/SSD.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -501,14 +549,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/CASE.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto10">CASE GAMER 1</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 8</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger ">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto10">290.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto10').text(), $('#precioproducto10').text(), 'img/CASE.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
@@ -521,14 +570,18 @@
                         <div class="card">
                             <img class="card-img-top" src="img/CASE.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto11">CASE GAMER 2</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 5</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto11">360.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="#" class="btn btn-primary">Comprar</a>
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto11').text(), $('#precioproducto11').text(), 'img/CASE.jpeg')">Agregar
+                                            <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
+
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -539,14 +592,15 @@
                         <div class="card">
                             <img class="card-img-top" src="img/CASE.jpeg" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-title"><a href="#" class="text-dark">Producto 1</a></h4>
+                                <h4 class="card-title"><a href="#" class="text-dark"><span id="nameproducto12">CASE GAMER 3</span></a></h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p>STOCK: 13</p>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="btn btn-danger">99.00$</p>
+                                        <p class="btn btn-outline-danger">S/.<span id="precioproducto12">500.00</span> </p>
                                     </div>
                                     <div class="col">
-                                        <a href="cart.html" class="btn btn-primary">Agregar 
+                                        <a class="btn btn-primary" onclick="agregar($('#nameproducto12').text(), $('#precioproducto12').text(), 'img/CASE.jpeg')">Agregar 
                                             <span class="iconify " data-icon="ant-design:shopping-cart-outlined" data-width="20" data-height="20"></span>
                                         </a>
                                     </div>
