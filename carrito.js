@@ -17,21 +17,35 @@ function agregarFilas(){
             <td>${getParameterByName("nombre"+i)}</td>
             <td>En stock</td>
             <td>
-                <select class="form-select" aria-label=" example"  >
-                    <option value="1">0</option>
-                    <option value="2"selected>1</option>
-                    <option value="3">2</option>
+                <select class="form-select" aria-label="example" id="selectstock${i}" onchange="stock('selectstock${i}','precioid${i}' )" >
+                    <option value="0">0</option>
+                    <option value="1"selected>1</option>
+                    <option value="2">2</option>
                 </select>
             </td>
-            <td class="text-center">${getParameterByName("precio"+i)}</td>
+            <td class="text-center" id="precioid${i}">${getParameterByName("precio"+i)}</td>
             <td class="text-center"><button class="btn btn-sm btn-danger"><span class="iconify" data-icon="bi:trash-fill" data-width="20" data-height="20"></span> </button> </td>
         </tr>
         `);
     }
-
+    
 }
 $(document).ready(agregarFilas);
 
 
+function stock(id, precio){
+    //alert($(`#${id}`).val())
+    let cantidad = $(`#${id}`).val()
+    let precioMulti = $(`#${precio}`).text();
+    
+    //let precio = 0
+    let precioSuma = Number(cantidad)* Number(precioMulti.replace('S/.',''))
 
-//document.getElementById("botonRegresar").innerHTML = `<i class='ri-arrow-left-s-line'></i><a onclick='window.location.href="https://jorgitoayala.github.io/Sneakers/index.html"' id='regresar'>Regresar</a>`;
+    $(`#${precio}`).text(`S/.${precioSuma}.00`)
+    //alert(precio)
+    let subtotal = Number($("#subtotal").text().replace('S/.','')) + Number(precioMulti.replace('S/.',''))
+    $("#subtotal").text(subtotal);
+    $("#preciofinal").text( subtotal + 100 );
+    
+}
+
