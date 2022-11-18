@@ -15,6 +15,30 @@
        
         <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
         <title>Ecommerce</title>
+        <style>
+            #modalbody{
+            background-color: #eeeeee;
+            justify-content: space-between;
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+            #btn-pagar{
+            background-color: rgb(106, 228, 75);
+            border-radius: 5px;
+            }
+
+            #modalbody input{
+            margin-bottom: 15px;
+            border-radius: 5px;
+            padding: 5px;
+            }
+
+            #pago_tarjeta,#pago_email {
+            width: 100%;
+            }
+
+        </style>
     </head>    
 <body>
 <!--navbar-->
@@ -361,20 +385,20 @@
           <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form class="PAGO" id="CONTENEDOR_DATOS"></form>
-        <div class="modal-body">
-                <input type="number" name="tarjeta" id="pago_tarjeta" placeholder="Número de Tarjeta" maxlength="16">
-                <input type="number" name="fecha" id="pago_fecha" placeholder="MM/AA" maxlength="7">
-                <input type="number" name="CVV" id="pago_CVV" placeholder="CVV" maxlength="3">
-                <input type="text" name="nombre" id="pago_nombre" placeholder="Nombre" maxlength="20">
-                <input type="text" name="apellido" id="pago_apellido" placeholder="Apellido" maxlength="20">
-                <input type="email" name="email" id="pago_email" placeholder="Email" maxlength="100">
+        <div class="modal-body" id="modalbody">
+            <input type="number" name="tarjeta" id="pago_tarjeta" placeholder="Número de Tarjeta" maxlength="16">
+            <input type="number" name="fecha" id="pago_fecha" placeholder="MM/AA" maxlength="7">
+            <input type="number" name="CVV" id="pago_CVV" placeholder="CVV" maxlength="3">
+            <input type="text" name="nombre" id="pago_nombre" placeholder="Nombre" maxlength="20">
+            <input type="text" name="apellido" id="pago_apellido" placeholder="Apellido" maxlength="20">
+            <input type="email" name="email" id="pago_email" placeholder="Email" maxlength="100">
             
             <div id="paypal-button-container"></div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" id="btn-pagar" data-bs-dismiss="modal">Pagar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger boton1" id="btn-pagar" data-bs-dismiss="modal">Pagar</button>
+          <button type="button" class="btn btn-danger boton1" data-bs-dismiss="modal">Cerrar</button>
           
         </div>
       </div>
