@@ -18,10 +18,10 @@ body{
   font-weight: bold;
 }
 
-  .back-to-top:hover {
-    opacity: 1;
-    font-weight: bold;
-  }
+.back-to-top:hover {
+  opacity: 1;
+  font-weight: bold;
+}
 /*megaman*/
 .megaman{
   transform-origin: 0 100%;
